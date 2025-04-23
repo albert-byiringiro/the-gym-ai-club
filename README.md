@@ -23,7 +23,7 @@ Repository for The Gym's weekly AI Club sessions. Each folder contains materials
 1. Clone this repository
 ```bash
    git clone https://github.com/thegym/the-gym-ai-club.git
-   cd gym-ai-club
+   cd the-gym-ai-club
 ```
 
 2. Navigate to the current session
