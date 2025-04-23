@@ -26,14 +26,20 @@ Repository for The Gym's weekly AI Club sessions. Each folder contains materials
    cd gym-ai-club
 ```
 
-2. Navigate to the current session
+2. Create a feature-branch with this format `session-x-topic-your-name`
+```bash
+   git checkout -b session-1-ai-coding-assistants-your-name
+```
+
+3. Navigate to the current session
     
     ```bash
-    cd session-1-ai-coding-assistants
+    cd session-1-[session-name]
     ```
     
 3. Follow the session-specific README for detailed instructions
     
+4. Create PR with solutions and the name as: SESSION 1: YOUR NAME 
 
 ## Contributing
 
