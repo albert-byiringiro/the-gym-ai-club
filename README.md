@@ -46,5 +46,5 @@ If you'd like to contribute exercises or improvements:
 ## Resources
 
 - [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
-- [VS Code Setup Guide](https://claude.ai/chat/resources/setup-guides/vscode-setup.md)
-- [Prompt Engineering Cheatsheet](https://claude.ai/chat/resources/cheatsheets/prompt-engineering-basics.md)
+- [VS Code Setup Guide](https://code.visualstudio.com/docs/setup/setup-overview)
+- [Prompt Engineering Cheatsheet](https://www.superhuman.ai/c/prompts-cheat-sheet)
