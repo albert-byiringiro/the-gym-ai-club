@@ -24,6 +24,7 @@ Repository for The Gym's weekly AI Club sessions. Each folder contains materials
 ```bash
    git clone https://github.com/thegym/the-gym-ai-club.git
    cd the-gym-ai-club
+   git checkout sessions
 ```
 
 2. Create a feature-branch with this format `session-x-topic-your-name`
@@ -39,7 +40,7 @@ Repository for The Gym's weekly AI Club sessions. Each folder contains materials
     
 3. Follow the session-specific README for detailed instructions
     
-4. Create PR with solutions and the name as: SESSION 1: YOUR NAME 
+4. Create PR with solutions and the name as: SESSION 1: YOUR NAME to be merged into the `sessions` branch.
 
 ## Contributing
 
