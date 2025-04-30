@@ -16,7 +16,7 @@ Repository for The Gym's weekly AI Club sessions. Each folder contains materials
 | Session | Topic | Date | Materials |
 |---------|-------|------|-----------|
 | 1 | Understanding AI Coding Assistants | April 24, 2025 | [Link](./session-1-ai-coding-assistants/) |
-| 2 | Advanced Prompt Engineering | TBD | Coming soon |
+| 2 | Mastering VSCode Copilot Chat Modes | April 30, 2025 | [Link](./session-2-mastering-copilot-chat) |
 
 ## Setup Instructions
 
