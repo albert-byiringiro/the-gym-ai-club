@@ -28,7 +28,7 @@ Repository for The Gym's weekly AI Club sessions. Each folder contains materials
 
 2. Create a feature-branch with this format `session-x-topic-your-name`
 ```bash
-   git checkout -b session-1-ai-coding-assistants-your-name
+   git checkout -b session-x-sessionName-your-name
 ```
 
 3. Navigate to the current session
