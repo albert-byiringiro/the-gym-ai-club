@@ -56,3 +56,17 @@ function reverseWords(sentence) {
 // Implement a debounce function that limits how often a function can be called
 // The function should take a callback function, a delay time in milliseconds,
 // and should return a new function that can only be executed once per delay period
+
+function debounce(func, delay) {
+  let timeoutId; // Variable to hold the timeout ID
+
+  return function (...args) {
+    // Return a new function that takes any number of arguments
+    if (timeoutId) {
+      clearTimeout(timeoutId); // Clear the previous timeout if it exists
+    }
+    timeoutId = setTimeout(() => {
+      func.apply(this, args); // Call the original function with the provided arguments
+    }, delay); // Set a new timeout for the specified delay
+  };
+}
