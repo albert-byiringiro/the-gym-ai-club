@@ -1,33 +1,43 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import ExpenseForm from "./components/ExpenseForm";
 import ExpenseList from "./components/ExpenseList";
 import MonthlyTotals from "./components/MonthlyTotals"; // Added import
+import ExpenseChart from "./components/ExpenseChart"; // Added import
 
 function App() {
-  const [expenses, setExpenses] = useState([
-    {
-      id: uuidv4(),
-      title: "Groceries",
-      amount: 45.75,
-      date: "2025-04-15",
-      category: "Food",
-    },
-    {
-      id: uuidv4(),
-      title: "Gas",
-      amount: 30.0,
-      date: "2025-04-16",
-      category: "Transport",
-    },
-    {
-      id: uuidv4(),
-      title: "Restaurant",
-      amount: 65.2,
-      date: "2025-04-18",
-      category: "Food",
-    },
-  ]);
+  const [expenses, setExpenses] = useState(() => {
+    const localData = localStorage.getItem("expenses");
+    return localData
+      ? JSON.parse(localData)
+      : [
+          {
+            id: uuidv4(),
+            title: "Groceries",
+            amount: 45.75,
+            date: "2025-04-15",
+            category: "Food",
+          },
+          {
+            id: uuidv4(),
+            title: "Gas",
+            amount: 30.0,
+            date: "2025-04-16",
+            category: "Transport",
+          },
+          {
+            id: uuidv4(),
+            title: "Restaurant",
+            amount: 65.2,
+            date: "2025-04-18",
+            category: "Food",
+          },
+        ];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+  }, [expenses]);
 
   const [startDateFilter, setStartDateFilter] = useState("");
   const [endDateFilter, setEndDateFilter] = useState("");
@@ -120,7 +130,8 @@ function App() {
         onDeleteExpense={deleteExpense}
       />
       <MonthlyTotals monthlyTotals={calculateMonthlyTotals()} />{" "}
-      {/* Added MonthlyTotals component */}
+      <ExpenseChart expenses={filteredExpenses} />{" "}
+      {/* Added ExpenseChart component */}
     </div>
   );
 }
