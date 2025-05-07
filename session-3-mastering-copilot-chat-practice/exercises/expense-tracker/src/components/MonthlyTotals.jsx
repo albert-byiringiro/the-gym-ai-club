@@ -10,9 +10,14 @@ function MonthlyTotals({ monthlyTotals }) {
       </h2>
       <div className="space-y-2">
         {monthlyTotals.map(({ month, total }) => (
-          <div key={month} className="flex justify-between items-center p-2 bg-white rounded shadow">
+          <div
+            key={month}
+            className="flex justify-between items-center p-2 bg-white rounded shadow"
+          >
             <span className="text-gray-600">{month}:</span>
-            <span className="font-semibold text-blue-600">${total.toFixed(2)}</span>
+            <span className="font-semibold text-blue-600">
+              ${total.toFixed(2)}
+            </span>
           </div>
         ))}
       </div>
