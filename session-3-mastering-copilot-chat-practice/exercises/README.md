@@ -16,24 +16,30 @@ You'll be working with a simple expense tracker application that currently has b
 ### GitHub Copilot Chat Modes
 
 #### 1. Ask Mode
+
 Use this mode when you need explanations, have questions about code, or need conceptual help.
 
 ##### To activate:
+
 - Click on the Copilot Chat icon in VS Code or press `Ctrl+I` (Windows/Linux) or `Cmd+I` (Mac)
 - Type your question directly
 
 #### 2. Edit Mode
+
 Use this mode when you want Copilot to modify existing code or generate new code within a specific context.
 
 ##### To activate:
+
 - Select the code you want to modify
 - Click on the Copilot Chat icon or press `Ctrl+I` (Windows/Linux) or `Cmd+I` (Mac)
 - Type `/edit` followed by your instruction for how to change the code
 
 #### 3. Agent Mode
+
 Use this mode when you want Copilot to perform more complex tasks that might involve multiple files or understanding the broader project structure.
 
 ##### To activate:
+
 - Click on the Copilot Chat icon or press `Ctrl+I` (Windows/Linux) or `Cmd+I` (Mac)
 - Type `/agent` followed by your instruction
 
@@ -42,16 +48,23 @@ Use this mode when you want Copilot to perform more complex tasks that might inv
 Complete as many of the following tasks as possible using the appropriate Copilot chat mode:
 
 ### Ask Mode Tasks:
+
 1. Ask Copilot to explain how state is managed in the current application
 2. Get recommendations for improving the existing code structure
 3. Learn about optimal ways to handle form submission in React
 
 ### Edit Mode Tasks:
-1. Add a feature to categorize expenses (food, transport, entertainment, etc.)
+
+1. **Add a feature to categorize expenses:**
+   - Modify the `ExpenseForm` component: Add a `select` dropdown for categories (e.g., Food, Transport, Entertainment, Utilities, Other).
+   - Update the state in `App.jsx` to include `category` for each expense.
+   - Ensure the new expense object includes the selected category when the form is submitted.
+   - Modify the `ExpenseList` component to display the category for each expense item.
 2. Implement form validation for the expense input fields
 3. Add the ability to filter expenses by date range
 
 ### Agent Mode Tasks:
+
 1. Implement a feature to calculate and display monthly spending totals
 2. Add data persistence using local storage
 3. Create a simple data visualization component to show expense distribution
@@ -67,6 +80,7 @@ Complete as many of the following tasks as possible using the appropriate Copilo
 ## Submission
 
 Once you've completed the exercises, be prepared to share:
+
 1. Which tasks you completed
 2. What chat modes you found most helpful for different scenarios
 3. Examples of effective prompts you discovered
