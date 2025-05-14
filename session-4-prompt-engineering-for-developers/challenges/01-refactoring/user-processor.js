@@ -1,14 +1,14 @@
-// user-processor.js
-function processData(d) {
-  var res = [];
-  for(var i=0; i<d.length; i++) {
-    if(d[i].a == true) {
-      var x = d[i].b * 2;
-      res.push({id: d[i].id, val: x});
+function processData(data) {
+  const result = [];
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].a === true) {  // Strict equality check
+      const doubledValue = data[i].b * 2;
+      result.push({ id: data[i].id, val: doubledValue });
     }
   }
-  return res;
+  return result;
 }
+
 
 // Example usage
 const userData = [
