@@ -1,9 +1,30 @@
 function processData(data) {
+  // Input validation
+  if (!Array.isArray(data)) {
+    throw new TypeError("Input must be an array");
+  }
+
   const result = [];
   for (let i = 0; i < data.length; i++) {
-    if (data[i].a === true) {  // Strict equality check
-      const doubledValue = data[i].b * 2;
-      result.push({ id: data[i].id, val: doubledValue });
+    const item = data[i];
+    
+    // Skip invalid items (optional: could throw error instead)
+    if (typeof item !== 'object' || item === null) {
+      continue;
+    }
+
+    // Validate required fields exist and have correct types
+    if (
+      item.a === true &&
+      typeof item.id !== 'undefined' &&
+      typeof item.b === 'number' &&
+      !isNaN(item.b)
+    ) {
+      const doubledValue = item.b * 2;
+      result.push({ 
+        id: item.id, 
+        val: doubledValue 
+      });
     }
   }
   return result;
