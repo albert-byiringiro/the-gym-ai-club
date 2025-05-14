@@ -1,47 +1,67 @@
-function transformAndFilterActiveItems(originalData) {
+const transformAndFilterActiveItems = (originalData) => {
   if (!Array.isArray(originalData)) {
     throw new TypeError("Input must be an array of items");
   }
 
-  return originalData.reduce((accumulatedResults, currentItem) => {
-    if (!isValidItem(currentItem)) {
-      return accumulatedResults; // immutable return
-    }
+  // Early return for empty input
+  if (originalData.length === 0) return [];
 
+  return originalData.flatMap((currentItem) => {
+    // Modern nullish checks with optional chaining
+    if (!isValidItem(currentItem)) return [];
+
+    // Using modern Number methods and property checks
     if (shouldProcessItem(currentItem)) {
-      const processedItem = createProcessedItem(currentItem);
-      return [...accumulatedResults, processedItem]; // immutable update
+      return [createProcessedItem(currentItem)];
     }
 
-    return accumulatedResults;
-  }, []);
-}
+    return [];
+  });
+};
 
-// Pure helper functions with descriptive names
-function isValidItem(item) {
-  return typeof item === 'object' && item !== null;
-}
+// Arrow functions with proper type checking
+const isValidItem = (item) => 
+  item?.constructor === Object && 
+  Object.hasOwn(item, 'a') && 
+  Object.hasOwn(item, 'b') && 
+  Object.hasOwn(item, 'id');
 
-function shouldProcessItem(item) {
+const shouldProcessItem = (item) => {
+  // Modern number validation and type safety
+  const isNumeric = Number.isFinite(item.b);
+  const isValidId = typeof item.id === 'number' || typeof item.id === 'string';
+  
   return (
     item.a === true &&
-    typeof item.id !== 'undefined' &&
-    typeof item.b === 'number' &&
-    !isNaN(item.b)
+    isValidId &&
+    isNumeric &&
+    // Protect against prototype pollution
+    Object.hasOwn(item, 'id') &&
+    Object.hasOwn(item, 'a') &&
+    Object.hasOwn(item, 'b')
   );
-}
+};
 
-function createProcessedItem(item) {
-  return {
-    id: item.id,
-    val: item.b * 2
-  };
-}
+const createProcessedItem = (item) => ({
+  id: item.id,
+  val: item.b * 2,
+  // Added metadata for debugging
+  _source: { 
+    b: item.b, 
+    calculatedAt: new Date().toISOString() 
+  }
+});
 
-// Example usage remains the same
+// Example usage with additional edge cases
 const userData = [
   {id: 1, a: true, b: 10, name: "John", active: true},
   {id: 2, a: false, b: 20, name: "Alice", active: false},
   {id: 3, a: true, b: 15, name: "Bob", active: true},
-  {id: 4, a: true, b: null, name: "Sarah", active: true}
+  {id: 4, a: true, b: null, name: "Sarah", active: true},
+  {id: NaN, a: true, b: 5}, // New edge case
+  {id: '5', a: true, b: 25}, // String ID case
+  Object.create({prototypePollution: true}), // Prototype check
+  {a: true, b: 30}, // Missing ID
+  {id: 6, b: 35}, // Missing 'a'
+  {id: 7, a: true, b: Infinity} // Infinite value
 ];
