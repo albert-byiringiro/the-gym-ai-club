@@ -1,4 +1,4 @@
-function UserStats({ statistics }) {
+export function UserStats({ statistics }) {
     return (
       <div className="user-stats">
         <h2>User Statistics</h2>
