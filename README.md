@@ -18,6 +18,8 @@ Repository for The Gym's weekly AI Club sessions. Each folder contains materials
 | 1 | Understanding AI Coding Assistants | April 24, 2025 | [Link](./session-1-ai-coding-assistants/) |
 | 2 | Mastering VSCode Copilot Chat Modes | April 30, 2025 | [Link](./session-2-mastering-copilot-chat) |
 | 3 | Mastering VSCode Copilot Chat Modes - Practice | May 07, 2025 | [Link](./session-3-mastering-copilot-chat-practice) |
+| 4 | Prompt Engineering for Software Developers | May 14, 2025 | [Link](./session-4-prompt-engineering-for-developers/README.md) |
+| 5 | Debugging code with AI assistance | May 28, 2025 | [Link](./session-5-debugging-with-ai/challenges/README.md) |
 
 ## Setup Instructions
 
