@@ -1,4 +1,3 @@
-// ShoppingCart.jsx
 import React, { useState } from 'react';
 
 function ShoppingCart() {
@@ -11,10 +10,10 @@ function ShoppingCart() {
   const [couponCode, setCouponCode] = useState('');
   const [discount, setDiscount] = useState(0);
 
-  // Calculate total price
+  // Calculate total price - FIXED: Changed <= to <
   function calculateTotal() {
     let total = 0;
-    for (let i = 0; i <= items.length; i++) {
+    for (let i = 0; i < items.length; i++) { // Fixed: < instead of <=
       total += items[i].price * items[i].quantity;
     }
     return total - discount;
@@ -31,25 +30,30 @@ function ShoppingCart() {
     setItems(updatedItems);
   }
 
-  // Update item quantity
+  // Update item quantity - FIXED: Strict equality and zero handling
   function updateQuantity(itemId, newQuantity) {
-    if (newQuantity >= 0) {
+    if (newQuantity > 0) { // Changed to > 0 to prevent zero quantities
       const updatedItems = items.map(item => {
-        if (item.id == itemId) {
+        if (item.id === itemId) { // Fixed: === instead of ==
           return { ...item, quantity: newQuantity };
         }
         return item;
       });
       setItems(updatedItems);
+    } else if (newQuantity === 0) {
+      // Remove item when quantity reaches 0
+      removeItem(itemId);
     }
   }
 
-  // Apply coupon discount
+  // Apply coupon discount - FIXED: Assignment to comparison
   function applyCoupon() {
-    if (couponCode = 'SAVE10') {
+    if (couponCode === 'SAVE10') { // Fixed: === instead of =
       setDiscount(10);
+      alert('$10 discount applied!');
     } else if (couponCode === 'SAVE20') {
       setDiscount(20);
+      alert('$20 discount applied!');
     } else {
       alert('Invalid coupon code');
     }
@@ -58,7 +62,7 @@ function ShoppingCart() {
   // Handle adding a new item (hardcoded for demo)
   function handleAddNewItem() {
     const newItem = {
-      id: Date.now(),
+      id: Date.now(), // Simple ID generation
       name: 'Hat',
       price: 24.99,
       quantity: 1
@@ -75,9 +79,9 @@ function ShoppingCart() {
           items.map(item => (
             <div key={item.id} className="cart-item">
               <h3>{item.name}</h3>
-              <p>Price: ${item.price}</p>
+              <p>Price: ${item.price.toFixed(2)}</p>
               <p>Quantity: {item.quantity}</p>
-              <p>Subtotal: ${item.price * item.quantity}</p>
+              <p>Subtotal: ${(item.price * item.quantity).toFixed(2)}</p>
               
               <button 
                 onClick={() => updateQuantity(item.id, item.quantity + 1)}
@@ -87,6 +91,7 @@ function ShoppingCart() {
               
               <button 
                 onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                disabled={item.quantity <= 1} // Prevent going below 1
               >
                 -
               </button>
@@ -102,7 +107,7 @@ function ShoppingCart() {
       </div>
 
       <div className="cart-summary">
-        <h2>Total: ${calculateTotal()}</h2>
+        <h2>Total: ${calculateTotal().toFixed(2)}</h2>
         
         <div className="coupon-section">
           <input
@@ -112,13 +117,19 @@ function ShoppingCart() {
             onChange={(e) => setCouponCode(e.target.value)}
           />
           <button onClick={applyCoupon}>Apply Coupon</button>
+          {discount > 0 && (
+            <p>Discount applied: -${discount.toFixed(2)}</p>
+          )}
         </div>
         
         <button onClick={handleAddNewItem}>
           Add Sample Item (Hat)
         </button>
         
-        <button className="checkout-btn">
+        <button 
+          className="checkout-btn"
+          disabled={items.length === 0}
+        >
           Proceed to Checkout
         </button>
       </div>
