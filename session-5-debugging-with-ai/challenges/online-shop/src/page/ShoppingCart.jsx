@@ -14,7 +14,7 @@ function ShoppingCart() {
   // Calculate total price
   function calculateTotal() {
     let total = 0;
-    for (let i = 0; i <= items.length; i++) {
+    for (let i = 0; i < items.length; i++) { // Fixed: use < instead of <=
       total += items[i].price * items[i].quantity;
     }
     return total - discount;
