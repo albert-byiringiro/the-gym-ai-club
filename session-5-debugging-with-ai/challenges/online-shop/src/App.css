@@ -1,42 +1,193 @@
-#root {
-  max-width: 1280px;
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+/* Shopping cart container */
+.shopping-cart {
+  max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.shopping-cart h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* Cart items section */
+.cart-items {
+  margin-bottom: 30px;
+}
+
+.cart-item {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 15px;
+  background: #fafafa;
+}
+
+.cart-item h3 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.cart-item p {
+  margin: 5px 0;
+  color: #666;
+}
+
+/* Button styles */
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 2px;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+/* Quantity control buttons */
+.cart-item button {
+  margin-right: 5px;
+}
+
+/* Remove button - different color */
+.cart-item button:last-child {
+  background-color: #e74c3c;
+}
+
+.cart-item button:last-child:hover {
+  background-color: #c0392b;
+}
+
+/* Cart summary section */
+.cart-summary {
+  border-top: 2px solid #eee;
+  padding-top: 20px;
+}
+
+.cart-summary h2 {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Coupon section */
+.coupon-section {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  margin: 20px 0;
+  border: 1px solid #e9ecef;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.coupon-section input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-right: 10px;
+  width: 200px;
+}
+
+.coupon-section input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.coupon-section p {
+  margin-top: 10px;
+  color: #27ae60;
+  font-weight: bold;
+}
+
+/* Checkout button - special styling */
+.checkout-btn {
+  background-color: #27ae60;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 24px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.checkout-btn:hover {
+  background-color: #219a52;
+}
+
+.checkout-btn:disabled {
+  background-color: #95a5a6;
+}
+
+/* Empty cart message */
+.cart-items p {
+  text-align: center;
+  font-style: italic;
+  color: #7f8c8d;
+  font-size: 18px;
+  padding: 40px 20px;
+}
+
+/* Add sample item button */
+button:nth-last-child(2) {
+  background-color: #9b59b6;
+  margin-bottom: 10px;
+}
+
+button:nth-last-child(2):hover {
+  background-color: #8e44ad;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .shopping-cart {
+    margin: 10px;
+    padding: 15px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .cart-item {
+    padding: 10px;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  
+  .coupon-section input {
+    width: 150px;
+    margin-bottom: 10px;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  
+  button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
 }
