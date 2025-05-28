@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchUserData } from '../api/userService';
-import UserStats from './UserStats';
-import UserActivity from './UserActivity';
+import UserStats from '../components/UserStats';
+import UserActivity from '../components/UserActivity';
 
 function UserProfile({ userId }) {
   const [user, setUser] = useState({});
