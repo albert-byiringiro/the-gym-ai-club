@@ -6,7 +6,7 @@ This challenge introduces you to using AI to identify and fix common bugs in a s
 
 ## Starting Code
 
-[Shopping Cart Challenge](./online-shop/)
+[Shopping Cart Challenge](./online-shop/src/page/ShoppingCart.jsx)
 
 ## The Problem
 
