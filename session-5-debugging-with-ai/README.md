@@ -1,4 +1,4 @@
-# Challenge 3: The Debugging Mystery
+# Challenge: The Debugging Mystery
 
 ## Overview
 
