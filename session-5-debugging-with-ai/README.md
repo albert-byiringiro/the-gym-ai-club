@@ -6,7 +6,7 @@ This challenge focuses on using AI to help identify and fix non-obvious bugs in 
 
 ## Starting Code
 
-[User App repository](./exercises/user-app)
+[User App repository](./presentation/user-app)
 
 ## The Problem
 
