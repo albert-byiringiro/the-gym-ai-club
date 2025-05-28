@@ -13,11 +13,19 @@ function ShoppingCart() {
 
   // Calculate total price
   function calculateTotal() {
-    let total = 0;
-    for (let i = 0; i < items.length; i++) { // Fixed: use < instead of <=
-      total += items[i].price * items[i].quantity;
+    if (!Array.isArray(items) || items.length === 0) {
+      return 0;
     }
-    return total - discount;
+    let total = 0;
+    for (let i = 0; i < items.length; i++) {
+      // Defensive: check for valid price and quantity
+      const price = typeof items[i].price === 'number' ? items[i].price : 0;
+      const quantity = typeof items[i].quantity === 'number' ? items[i].quantity : 0;
+      total += price * quantity;
+    }
+    // Ensure discount is not greater than total
+    const safeDiscount = typeof discount === 'number' && discount > 0 ? Math.min(discount, total) : 0;
+    return total - safeDiscount;
   }
 
   // Add item to cart
@@ -46,6 +54,10 @@ function ShoppingCart() {
 
   // Apply coupon discount
   function applyCoupon() {
+    if (!couponCode) {
+      alert('Please enter a coupon code');
+      return;
+    }
     if (couponCode === 'SAVE10') {
       setDiscount(10);
     } else if (couponCode === 'SAVE20') {
