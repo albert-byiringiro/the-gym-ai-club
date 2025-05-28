@@ -1,12 +1,12 @@
 import './App.css'
-import UserProfile from './page/UserProfile'
+import ShoppingCart from './page/ShoppingCart'
 
 function App() {
 
   return (
     <>
     <div className="">
-      <UserProfile userId={1}/>
+      <ShoppingCart/>
     </div>
     </>
   )
