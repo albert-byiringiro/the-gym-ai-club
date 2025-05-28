@@ -1,4 +1,6 @@
-export function UserActivity({ userId, limit }) {
+import {useState, useEffect} from 'react'
+
+export function UserActivity({ userId }) {
     const [activities, setActivities] = useState([]);
     
     useEffect(() => {
