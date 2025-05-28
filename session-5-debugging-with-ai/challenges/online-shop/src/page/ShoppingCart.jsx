@@ -84,6 +84,10 @@ function ShoppingCart() {
     addItem(newItem);
   }
 
+  function formatPrice(amount) {
+    return amount.toFixed(2);
+  }
+
   return (
     <div className="shopping-cart">
       <h1>Shopping Cart</h1>
@@ -93,9 +97,9 @@ function ShoppingCart() {
           items.map((item) => (
             <div key={item.id} className="cart-item">
               <h3>{item.name}</h3>
-              <p>Price: ${item.price}</p>
+              <p>Price: {item.price}</p>
               <p>Quantity: {item.quantity}</p>
-              <p>Subtotal: ${item.price * item.quantity}</p>
+              <p>Subtotal: ${formatPrice(item.price * item.quantity)}</p>
 
               <button
                 onClick={() => updateQuantity(item.id, item.quantity + 1)}
@@ -118,7 +122,7 @@ function ShoppingCart() {
       </div>
 
       <div className="cart-summary">
-        <h2>Total: ${calculateTotal()}</h2>
+        <h2>Total: ${formatPrice(calculateTotal())}</h2>
 
         <div className="coupon-section">
           <input
@@ -128,6 +132,7 @@ function ShoppingCart() {
             onChange={(e) => setCouponCode(e.target.value)}
           />
           <button onClick={applyCoupon}>Apply Coupon</button>
+          {couponMessage && <p>{couponMessage}</p>}
         </div>
 
         <button onClick={handleAddNewItem}>Add Sample Item (Hat)</button>
