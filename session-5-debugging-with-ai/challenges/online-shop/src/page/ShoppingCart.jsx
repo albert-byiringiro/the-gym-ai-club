@@ -35,7 +35,7 @@ function ShoppingCart() {
   function updateQuantity(itemId, newQuantity) {
     if (newQuantity >= 0) {
       const updatedItems = items.map(item => {
-        if (item.id == itemId) {
+        if (item.id === itemId) { // Fixed: use strict equality ===
           return { ...item, quantity: newQuantity };
         }
         return item;
