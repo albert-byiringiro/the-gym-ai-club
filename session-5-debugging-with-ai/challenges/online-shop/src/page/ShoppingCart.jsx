@@ -46,7 +46,7 @@ function ShoppingCart() {
 
   // Apply coupon discount
   function applyCoupon() {
-    if (couponCode = 'SAVE10') {
+    if (couponCode === 'SAVE10') {
       setDiscount(10);
     } else if (couponCode === 'SAVE20') {
       setDiscount(20);
