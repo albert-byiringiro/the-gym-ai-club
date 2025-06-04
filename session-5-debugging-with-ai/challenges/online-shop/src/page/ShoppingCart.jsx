@@ -18,7 +18,7 @@ function ShoppingCart() {
     for (let i = 0; i < items.length; i++) {
       total += items[i].price * items[i].quantity;
     }
-    return Math.max(total - discount);
+    return Math.max(0, total - discount);
   }
 
   // Add item to cart
@@ -49,10 +49,6 @@ function ShoppingCart() {
 
   // Update item quantity
   function updateQuantity(itemId, newQuantity) {
-    if (newQuantity < 1) {
-      removeItem(itemId);
-      return;
-    }
     const updatedItems = items.map((item) => {
       if (item.id === itemId) {
         return { ...item, quantity: newQuantity };
