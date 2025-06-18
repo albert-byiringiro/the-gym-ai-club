@@ -25,7 +25,7 @@ function UserProfile({ userId }) {
     }
     
     fetchUser();
-  }, []); // Missing dependency array
+  }); // Missing dependency array
   
   function handleUpdateProfile(updatedData) {
     setUser({ ...user, ...updatedData });

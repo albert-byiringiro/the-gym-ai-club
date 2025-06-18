@@ -7,7 +7,8 @@ Repository for The Gym's weekly AI Club sessions. Each folder contains materials
 - Each session has its own folder (`session-X-topic-name/`)
 - Inside each session folder:
   - `README.md` with session overview
-  - `exercises/` containing hands-on activities
+  - `challenges/` containing hands-on activities
+  - `exercises/` containing individual submissions of hands-on activities
   - `solutions/` with reference implementations
   - `presentation/` with slides or notes
 
@@ -20,6 +21,7 @@ Repository for The Gym's weekly AI Club sessions. Each folder contains materials
 | 3 | Mastering VSCode Copilot Chat Modes - Practice | May 07, 2025 | [Link](./session-3-mastering-copilot-chat-practice) |
 | 4 | Prompt Engineering for Software Developers | May 14, 2025 | [Link](./session-4-prompt-engineering-for-developers/README.md) |
 | 5 | Debugging code with AI assistance | May 28, 2025 | [Link](./session-5-debugging-with-ai/challenges/README.md) |
+| 6 | Prompt Anatomy & Best Practices | June 18, 2025 | [Link](./session-6-prompt-anatomy/README.md) |
 
 ## Setup Instructions
 
@@ -38,12 +40,12 @@ Repository for The Gym's weekly AI Club sessions. Each folder contains materials
 3. Navigate to the current session
     
     ```bash
-    cd session-1-[session-name]
+    cd session-x-[session-name]
     ```
     
-3. Follow the session-specific README for detailed instructions
-    
-4. Create PR with solutions and the name as: SESSION 1: YOUR NAME to be merged into the `sessions` branch.
+4. Create a folder with your name inside exercises folder of the with session: `session-6-prompt-anatomy/exercises/[your-name]/`
+5. Follow the session-specific README for detailed instructions
+6. Create a PR titled: `SESSION x: [YOUR NAME] - [session-name] Solutions`. Merge target: `sessions` branch
 
 ## Contributing
 
