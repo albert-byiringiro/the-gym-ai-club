@@ -13,3 +13,20 @@
 // 3. Write a function that filters an array to only include even numbers
 // function filterEvenNumbers(numbers) {
 //   ...start typing here and observe suggestions
+
+function factorial(n) {
+  if (n === 0 || n === 1) {
+    return 1;
+  }
+  return n * factorial(n - 1);
+}
+
+function isPalindrome(str) {
+  const reversedStr = str.split('').reverse().join('');
+  return str === reversedStr;
+}
+
+function filterEvenNumbers(numbers) {
+  return numbers.filter(num => num % 2 === 0);
+}
+
