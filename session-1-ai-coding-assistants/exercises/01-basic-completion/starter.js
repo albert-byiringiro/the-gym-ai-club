@@ -3,13 +3,21 @@
 // and observe how GitHub Copilot suggests completions
 
 // 1. Write a function that calculates the factorial of a number
-// function factorial(n) {
-//   ...start typing here and observe suggestions
+function factorial(n) {
+  const result = 1;
+  for (let i = 1; i <= n; i++) {
+    result *= i;
+  }
+  return result;
+}
 
 // 2. Write a function that checks if a string is a palindrome
-// function isPalindrome(str) {
-//   ...start typing here and observe suggestions
+function isPalindrome(str) {
+  const reversedStr = str.split("").reverse().join("");
+  return str === reversedStr;
+}
 
 // 3. Write a function that filters an array to only include even numbers
-// function filterEvenNumbers(numbers) {
-//   ...start typing here and observe suggestions
+function filterEvenNumbers(numbers) {
+  return numbers.filter((num) => num % 2 === 0);
+}
