@@ -57,6 +57,7 @@ If you'd like to contribute exercises or improvements:
 
 ## Resources
 
+- [AI Weekly](https://aiweekly.co/) - Discover what AI experts are reading and sharing right now
 - [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
 - [VS Code Setup Guide](https://code.visualstudio.com/docs/setup/setup-overview)
 - [Prompt Engineering Cheatsheet](https://www.superhuman.ai/c/prompts-cheat-sheet)
